@@ -5,7 +5,7 @@ A R package to study Cell Signalling Using Single Cell RNAseq Data.
 # Installation
 
 From Rstudio type :    
-devtools::install_github(repo = "https://github.com/SCA-IRCM/SingleCellSignalR", subdir = "SingleCellSignalR")    
+devtools::install_github(repo = "https://github.com/SCA-IRCM/SingleCellSignalR_v1", subdir = "SingleCellSignalR")    
 
 
 # Citation
