@@ -1,6 +1,6 @@
 # SingleCellSignalR
 
-A R package to study Cell Signalling Using Single Cell RNAseq Data.
+A R package to study Cell Signaling Using Single Cell RNAseq Data.
  
 # Installation
 
