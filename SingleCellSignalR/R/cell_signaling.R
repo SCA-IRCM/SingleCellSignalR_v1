@@ -233,6 +233,11 @@ cell_signaling = function(data, genes, cluster,int.type=c("paracrine","autocrine
               if (write==TRUE){
                 fwrite(data.frame(final),paste("./cell-signaling/LR_interactions_",c.names[i],"-",c.names[j],"-",int.type,".txt",sep=""),sep="\t")
                 # write.graph(gr,file=paste0('./cell-signaling/LR_interactions_',c.names[i],'-',c.names[j],"-",int.type,'.graphml'),format="graphml")
+              } else {
+                if (verbose==TRUE){
+                  cat(paste(nrow(final),"No significant interaction found from",c.names[i],"to",
+                            c.names[j]),fill=TRUE))
+                }
               }
             }
           }
