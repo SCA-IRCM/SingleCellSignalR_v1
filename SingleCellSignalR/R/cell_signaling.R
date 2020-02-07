@@ -236,7 +236,7 @@ cell_signaling = function(data, genes, cluster,int.type=c("paracrine","autocrine
               } else {
                 if (verbose==TRUE){
                   cat(paste(nrow(final),"No significant interaction found from",c.names[i],"to",
-                            c.names[j]),fill=TRUE))
+                            c.names[j]),fill=TRUE)
                 }
               }
             }
