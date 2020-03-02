@@ -27,7 +27,7 @@ inter_network = function(data,genes,cluster,signal,c.names=NULL,species=c("homo 
   if (dir.exists("networks")==FALSE & write==TRUE){
     dir.create("networks")
   }
-  if (is.null(c.names)==TRUE){
+  if (is.null(c.names)){
     c.names <- paste("cluster",1:max(cluster))
   }
   if (min(cluster)!=1){
@@ -37,6 +37,10 @@ inter_network = function(data,genes,cluster,signal,c.names=NULL,species=c("homo 
     cat("The length of c.names must be equal to the number of clusters and must contain no duplicates. The cluster names must not include special characters",fill=TRUE)
     return()
   }
+  if (is.null(signal)){
+    cat("The function requires signal not to be NULL.")
+  }
+
   cellint=NULL
   rownames(data) <- genes
   interface <- list()
@@ -175,7 +179,7 @@ simplifyInteractions <- function(t,lr=NULL,autocrine=FALSE){
   for (i in dk){
     jj <- setdiff(which(t$a.gn==t[i,"a.gn"] & t$b.gn==t[i,"b.gn"] & t$type==t[i,"type"]),i)
     for (j in jj){
-      t[j,"pmid"] <- mergeText(t[j,"pmid"],t[i,"pmid"])
+      # t[j,"pmid"] <- mergeText(t[j,"pmid"],t[i,"pmid"])
       t[j,"pathway"] <- mergeText(t[j,"pathway"],t[i,"pathway"])
       t[j,"detailed.type"] <- mergeText(t[j,"detailed.type"],t[i,"detailed.type"])
     }
@@ -189,7 +193,7 @@ simplifyInteractions <- function(t,lr=NULL,autocrine=FALSE){
   for (i in dk){
     jj <- setdiff(which(t$a.gn==t[i,"a.gn"] & t$b.gn==t[i,"b.gn"]),i)
     for (j in jj){
-      t[j,"pmid"] <- mergeText(t[j,"pmid"],t[i,"pmid"])
+      # t[j,"pmid"] <- mergeText(t[j,"pmid"],t[i,"pmid"])
       t[j,"pathway"] <- mergeText(t[j,"pathway"],t[i,"pathway"])
       t[j,"detailed.type"] <- mergeText(t[j,"detailed.type"],t[i,"detailed.type"])
       if (t$type[j]!='control'){
@@ -209,7 +213,7 @@ simplifyInteractions <- function(t,lr=NULL,autocrine=FALSE){
   for (i in rk){
     j <- setdiff(which(t$a.gn==t[i,"b.gn"] & t$b.gn==t[i,"a.gn"]),i)
     if (j < i){
-      t[j,"pmid"] <- mergeText(t[j,"pmid"],t[i,"pmid"])
+      # t[j,"pmid"] <- mergeText(t[j,"pmid"],t[i,"pmid"])
       t[j,"pathway"] <- mergeText(t[j,"pathway"],t[i,"pathway"])
       t[j,"detailed.type"] <- mergeText(t[j,"detailed.type"],t[i,"detailed.type"])
       if (t$type[j]!='control'){
