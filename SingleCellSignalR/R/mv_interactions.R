@@ -62,7 +62,11 @@ mv_interactions = function(data,genes,cluster,c.names=NULL,n=30,species=c("homo 
     v=apply(lr_sc,1,var)/apply(lr_sc,1,mean)
     lr_sc = lr_sc[order(v,decreasing = T),]
     lr_sc = lr_sc[apply(lr_sc,1, max)>0.5,]
-    pheatmap::pheatmap(lr_sc[1:n,colSums(lr_sc[1:n,])!=0],cluster_cols = T)
+    ph = pheatmap::pheatmap(lr_sc[1:n,colSums(lr_sc[1:n,])!=0],cluster_cols = T)
+    dat = lr_sc[1:n,colSums(lr_sc[1:n,])!=0]
+    res = list(ph,dat)
+    names(res) = c("heatmap","table")
+    return(res)
   } else {
     cat("No interactions detected. Make sure the genes vector is composed of HUGO official gene names.",fill=TRUE)
   }
