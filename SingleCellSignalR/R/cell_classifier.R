@@ -116,10 +116,10 @@ cell_classifier = function(data,genes,markers = markers.default,tsne=NULL,plot.d
     legend("topleft",legend = n,fill = cr,cex = 0.75)
   }
   if (plot.details==TRUE){
-    plot(l,xlab="Threshold (%)",ylab="Number of cells", main= "Attribution of one cell to one cell type",type='l')
+    plot(l,xlab="Threshold",ylab="Number of cells", main= "Attribution of one cell to one cell type",type='l')
     abline(v=l[l[,1]==seuil,1], col = "red", lty = 2)
     symbols(l[l[,1]==seuil,1],l[l[,1]==seuil,2],circles=1,inches=0.05,bg="red",fg="red",add=TRUE)
-    text(x=l[l[,1]==seuil,1],y=l[l[,1]==seuil,2]-0.07*(max(l)),labels = paste(seuil,"%"),offset = 20)
+    text(x=l[l[,1]==seuil,1],y=l[l[,1]==seuil,2]-0.07*(max(l)),labels = paste(seuil),offset = 20)
   }
   if (write==TRUE){
     fwrite(data.frame(cbind(rownames(res[[1]]),res[[1]])),"cell-classification/threshold_class_matrix.txt",sep="\t")
