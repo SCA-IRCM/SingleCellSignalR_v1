@@ -8,4 +8,5 @@ Package available on *Bioconductor*: https://bioconductor.org/packages/release/b
 And on GitHub: https://github.com/SCA-IRCM/SingleCellSignalR_v1 for R (version "3.6")  
 
 
-- **14 august 2020**: New functions specially created to unravel interactions in PDX datasets (package version 1.7)
+- **14 august 2020**: New functions specially created to unravel interactions in PDX datasets (package version 1.7)   
+An example of use can be found in the *Demo* repository (https://github.com/SCA-IRCM/Demo)
