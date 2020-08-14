@@ -10,7 +10,7 @@ data_prepare(
   lower = 0,
   upper = 0,
   normalize = TRUE,
-  write = TRUE,
+  write = FALSE,
   verbose = TRUE,
   plot = FALSE
 )
@@ -40,5 +40,6 @@ the function returns also a sub matrix of the N most variables genes.
 Prepares the data for further analysis
 }
 \examples{
-\donttest{data_prepare("~/scRNAseq_dataset.txt")}
+file <- system.file("scRNAseq_dataset.txt",package = "SingleCellSignalR")
+data <- data_prepare(file = file)
 }

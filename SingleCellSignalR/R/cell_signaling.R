@@ -108,7 +108,7 @@ cell_signaling = function(data, genes, cluster,int.type=c("paracrine","autocrine
         names(m.rec) = rec.temp
 
         final = final.tmp[is.element(final.tmp$receptor,rec.temp),]
-        final = cbind(final,score(m.lig[final$ligand],m.rec[final$receptor],med))
+        final = cbind(final,LRscore(m.lig[final$ligand],m.rec[final$receptor],med))
 
         colnames(final) = c(c.names[i],c.names[j],"interaction type","LRscore")
 
@@ -203,7 +203,7 @@ cell_signaling = function(data, genes, cluster,int.type=c("paracrine","autocrine
             names(m.rec) = rec.temp
 
             final = final.tmp[is.element(final.tmp$receptor,rec.temp),]
-            final = cbind(final,score(m.lig[final$ligand],m.rec[final$receptor],med))
+            final = cbind(final,LRscore(m.lig[final$ligand],m.rec[final$receptor],med))
             exclus = final$ligand %in% gene.list[[i]] & final$receptor %in% gene.list[[j]]
             if (sum(exclus)!=0){
               f.exclu = final[exclus,]
@@ -272,8 +272,8 @@ cell_signaling = function(data, genes, cluster,int.type=c("paracrine","autocrine
 #' l=1
 #' r=9
 #' s=5
-#' score(l,r,s)
-score = function(l,r,s){
+#' LRscore(l,r,s)
+LRscore = function(l,r,s){
   L=l^(1/2)
   R=r^(1/2)
   S=s

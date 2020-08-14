@@ -21,8 +21,9 @@
 #'
 #'
 #' @examples
-#' \donttest{data_prepare("~/scRNAseq_dataset.txt")}
-data_prepare = function(file, most.variables=0, lower=0, upper=0,normalize=TRUE,write=TRUE,verbose=TRUE, plot=FALSE){
+#' file <- system.file("scRNAseq_dataset.txt",package = "SingleCellSignalR")
+#' data <- data_prepare(file = file)
+data_prepare = function(file, most.variables=0, lower=0, upper=0, normalize=TRUE, write=FALSE, verbose=TRUE, plot=FALSE){
 
   if (dir.exists("data")==FALSE & write==TRUE){
     dir.create("data")

@@ -4,7 +4,8 @@
 \name{LRdb}
 \alias{LRdb}
 \title{Ligand/Receptor interactions data table}
-\format{A data frame with 3369 rows of 13 variables:
+\format{
+A data frame with 3369 rows of 13 variables:
 \describe{
   \item{ligand}{ligand gene symbol}
   \item{receptor}{receptor gene symbol}
@@ -20,7 +21,8 @@
   \item{cells.R}{cell types from which the receptor is exclusive}
   \item{remarks}{remarks}
   ...
-}}
+}
+}
 \source{
 \url{EDF R\&D}
 }
